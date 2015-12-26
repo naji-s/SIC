@@ -31,7 +31,6 @@ X = signal.lfilter(A_1, [1.], Z)
 # defining the secodn filter which take the cause as input and generates the effect
 A_2 = np.random.randn(FO)
 Y = signal.lfilter(A, [1.], X)
-SIC_inference(X,Y)
-# reporting the results with whitening
-# print "Forward SDRs:\n", deterministic_SDR_estimator(X, Y)
-# print "Backward SDRs:\n", deterministic_SDR_estimator(Y, X)
+
+# the inference step using algorithm 1 in ICML 2015
+SIC_inference(X, Y)
