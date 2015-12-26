@@ -2,8 +2,7 @@
 import numpy as np
 from scipy.signal import welch, lfilter
 from scipy.fftpack import rfft, fftfreq
-import sys
-from statsmodels.tools.eval_measures import aic as eval_aic        
+from statsmodels.tools.eval_measures import aic as eval_aic
 from statsmodels.regression.linear_model import OLS
 #from scipy.stats.mstats import mode
 from matplotlib import pyplot as plt
@@ -231,12 +230,22 @@ def stochastic_SDR_estimator(X, Y, welch_window_size=256, report_CI=True, p_valu
     return rho_X_Y, p_val
 
                 
-def SIC_inference(X, Y):
+def SIC_inference(X, Y, stochastic=False, order=None):
     """Function that takes SDRs in both directions and compares them. This will
     later be replaced with a more advanced report of the causal direction with confidence
     intervals"""
-    rho_X_Y, p_X_Y = stochastic_SDR_estimator(X, Y)
-    rho_Y_X, p_Y_X = stochastic_SDR_estimator(Y, X)
+
+    if stochastic:
+        if order is None:
+            rho_X_Y, p_X_Y = stochastic_SDR_estimator(X, Y, ic_type='bic', ic_max_order=20)
+            rho_Y_X, p_Y_X = stochastic_SDR_estimator(Y, X, ic_type='bic', ic_max_order=20)
+        else:
+            rho_X_Y, p_X_Y = stochastic_SDR_estimator(X, Y, order=order)
+            rho_Y_X, p_Y_X = stochastic_SDR_estimator(Y, X, order=order)
+    else:
+        rho_X_Y = deterministic_SDR_estimator(X, Y)
+        rho_Y_X = deterministic_SDR_estimator(Y, X)
+
     if rho_X_Y > rho_Y_X:
         print "X_t causes Y_t"
     else:
