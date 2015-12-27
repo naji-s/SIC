@@ -1,7 +1,6 @@
 """Copyright 2014 Naji Shajarisales
 
-This files contains the main algorithm of our paper for inferring the cause from effect
-in stationary time series. You can redistribute it and/or modify
+This repository contains the main algorithm and relevant codes for [1]. You can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version. See: <http://www.gnu.org/licenses/>.
@@ -10,3 +9,8 @@ This file is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details."""
+
+
+[1] Shajarisales, N. and Janzing, D. and Schölkopf, B. and Besserve, M. 
+"Telling cause from effect in deterministic linear dynamical systems.", 
+Proceedings of the 32th International Conference on Machine Learning (ICML-15)
