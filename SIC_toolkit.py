@@ -4,7 +4,7 @@ from scipy.signal import welch, lfilter
 from statsmodels.regression.linear_model import OLS
 from itertools import product
 from numpy import mean, multiply, \
-    einsum, sqrt, float64, abs, log, append,roots, asarray,arange, tile, var
+    empty, ones, divide, einsum, sqrt, float64, abs, log, append,roots, asarray,arange, tile, var
 
 from numpy import any as _any
 

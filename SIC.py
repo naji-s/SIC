@@ -3,7 +3,7 @@
 from numpy import random as random
 from scipy import signal
 from SIC_toolkit import SIC_inference, stochastic_SDR_estimator, deterministic_SDR_estimator
-
+import numpy as np
 
 ###### Illustration of an example ########
 ##
