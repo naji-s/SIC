@@ -16,7 +16,6 @@ def sphere_sampling(dim = 1, sample_size = 1):
     X_n_norm = sqrt(einsum('ij, ij -> i', X_n, X_n))
     return X_n / X_n_norm[..., None].astype(float64)
 
-
 def p_value_calculator(X, x, max_S, power, log_scale=False):
     if log_scale:
         X = log(X)
